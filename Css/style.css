@@ -1,12 +1,12 @@
 body {
     margin: 0;
     font-family: 'Inclusive Sans', sans-serif;
-    background: linear-gradient(70deg, blue, purple, pink);
+    background: linear-gradient(70deg, #C73866, #FD8F52, #FFDCA2);
 }
 
 h1 {
     text-align: center;
-    font-size: 100px;
+    font-size: 5vw; /* Tamaño de fuente en unidades 'vw' */
 }
 
 .Con-2 {
@@ -21,7 +21,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado a 'min-height' para adaptarse al contenido */
     margin: 0;
 }
 
@@ -34,24 +34,31 @@ canvas {
 
 .Texto {
     display: none;
+    float: left; /* Hace que el texto flote a la izquierda */
+    width: 50%; /* Define el ancho del texto */
+    padding-right: 20px; /* Agrega espacio entre la flor y el texto */
 }
 
 .Texto h2 {
-    font-size: 50px;
+
+    text-align:center;
+    justify-content:center;
+    padding: 5vw;
+    display: flex;
 }
 
 #B12 {
     margin-left: 30px;
 }
 
-.Button{
+.Button {
     font-family: monospace;
-    font-size: x-large;
+    font-size: 2rem; /* Tamaño de fuente en unidades 'rem' */
     transition-duration: 0.2s;
     padding: 10px;
     border-radius: 8px;
-    background-color: greenyellow; 
-    color: black; 
+    background-color: greenyellow;
+    color: black;
     border: 2px solid green;
     cursor: pointer;
 }
@@ -78,13 +85,14 @@ canvas {
     display: flex;
 }
 
-.cua{
+.cua {
     display: none;
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
+    width: 80%; /* Cambiado a porcentaje para adaptarse al ancho de la pantalla */
+    max-width: 300px; /* Tamaño máximo para evitar que sea demasiado ancho en pantallas grandes */
     padding: 30px;
     background-color: #f9f9f9;
     border: 2px solid greenyellow;
@@ -94,24 +102,198 @@ canvas {
     animation: aparecer 0.5s ease-out;
 }
 
-@keyframes aparecer {
+/*-------------------------------------------------*/
+
+/* Consulta de medios para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 3vw;
+    }
+    .Texto h2 {
+        font-size: 1.5vw;
+    }
+    .Button {
+        font-size: 1.5rem;
+    }
+    .cua {
+        width: 90%;
+    }
+}
+
+/* Estilos generales */
+.flower-container .flower {
+    transform: scale(4vw); /* Escala la flor utilizando unidades 'vw' para que sea responsive */
+}
+
+.flower-container {
+    display: none; /* Agrega esta línea para ocultar inicialmente la flor */
+    position: absolute; /* Cambia a "absolute" para posicionar libremente */
+    top: 20%; /* Ajusta la posición vertical de la flor utilizando porcentaje */
+    left: 20%; /* Centra horizontalmente la flor en la página */
+    transform: translateX(-50%); /* Centra horizontalmente la flor en la página */
+}
+  
+/* Estilos específicos de la flor */
+.flower {
+    height: 20vw; /* Tamaño de la flor en unidades 'vw' para que sea responsive */
+    width: 20vw; /* Tamaño de la flor en unidades 'vw' para que sea responsive */
+    margin: 2vw auto; /* Márgenes en unidades 'vw' para que sean responsive */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+  
+.mid {
+    width: 5vw; /* Tamaño en unidades 'vw' para que sea responsive */
+    height: 5vw; /* Tamaño en unidades 'vw' para que sea responsive */
+    border-radius: 50%;
+
+    background: radial-gradient(circle, #000, #ff5e00, #000);
+
+    z-index: 4;
+
+    background-size: 0.5vw 0.5vw; /* Tamaño en unidades 'vw' para que sea responsive */
+
+    filter: drop-shadow(0 0 2vw #682600); /* Tamaño en unidades 'vw' para que sea responsive */
+}
+  
+.Petal1 {
+    position: absolute;
+    left: 4vw; /* Ajusta la posición izquierda en unidades 'vw' */
+    z-index: 3;
+  
+    width: 12vw; /* Ajusta el ancho en unidades 'vw' */
+    height: 3vw; /* Ajusta el alto en unidades 'vw' */
+    border-radius: 50%;
+  
+    background: radial-gradient(circle, #ff5e00, #ffbb00);
+  
+    filter: drop-shadow(0 0 1.5vw #e05200); /* Ajusta la sombra en unidades 'vw' */
+  }
+  
+  .Petal1.p1 {
+    transform: rotate(22.5deg);
+  }
+  .Petal1.p2 {
+    transform: rotate(67.5deg);
+  }
+  .Petal1.p3 {
+    transform: rotate(110.5deg);
+  }
+  .Petal1.p4 {
+    transform: rotate(157.5deg);
+  }
+  
+  .Petal2 {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+  
+    width: 20vw; /* Ajusta el ancho en unidades 'vw' */
+    height: 4vw; /* Ajusta el alto en unidades 'vw' */
+    border-radius: 50%;
+  
+    background: radial-gradient(circle, #ff5e00, #fbd702);
+  
+    filter: drop-shadow(0 0 1.5vw #e05200); /* Ajusta la sombra en unidades 'vw' */
+  }
+  
+  .Petal2.p2 {
+    transform: rotate(90deg);
+  }
+  .Petal2.p3 {
+    transform: rotate(45deg);
+  }
+  
+  .Petal2.p4 {
+    transform: rotate(135deg);
+  }
+  
+  .Petal3 {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+  
+    width: 20vw; /* Ajusta el ancho en unidades 'vw' */
+    height: 4vw; /* Ajusta el alto en unidades 'vw' */
+    border-radius: 50%;
+  
+    background: radial-gradient(circle, #ff5e00, #fbd702);
+  
+    filter: drop-shadow(0 0 0.8vw #fbd702); /* Ajusta la sombra en unidades 'vw' */
+  }
+  
+  .Petal3.p1 {
+    transform: rotate(22.5deg);
+  }
+  .Petal3.p2 {
+    transform: rotate(67.5deg);
+  }
+  .Petal3.p3 {
+    transform: rotate(110.5deg);
+  }
+  .Petal3.p4 {
+    transform: rotate(157.5deg);
+  }
+
+  /*---------------------*/
+/* Tallo */
+.stem {
+    position: absolute;
+    width: 1vw; /* Ancho del tallo en unidades 'vw' */
+    height: 20vh; /* Altura del tallo en unidades 'vh' */
+    background-color: green; /* Verde para el color del tallo */
+    bottom: -10vh; /* Ajusta la posición vertical del tallo en unidades 'vh' */
+    left: 9.5vw; /* Ajusta la posición horizontal del tallo en unidades 'vw' */
+    z-index: 1; /* Debe estar detrás de los pétalos pero delante del florero */
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5); /* Ajusta la sombra en unidades 'vw' */
+}
+
+/* Florero */
+.vase {
+    position: absolute;
+    width: 4vw; /* Ancho del florero en unidades 'vw' */
+    height: 10vh; /* Altura del florero en unidades 'vh' */
+    background: radial-gradient(circle, #964B00, #5e2f01); /* Marrón para el color del florero */
+    bottom: -16vh; /* Ajusta la posición vertical del florero en unidades 'vh' */
+    left: 8vw; /* Ajusta la posición horizontal del florero en unidades 'vw' */
+    z-index: 2; /* Debe estar detrás de los pétalos y del tallo */
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5); /* Ajusta la sombra en unidades 'vw' */
+}
+
+/* Hoja del tallo (usando la clase Petal1) */
+.leaf {
+    position: absolute;
+    width: 12vw; /* Ancho igual al de un pétalo en unidades 'vw' */
+    height: 3vw; /* Altura igual al de un pétalo en unidades 'vw' */
+    border-radius: 50%;
+    background: radial-gradient(circle, green, #18df06);
+    filter: drop-shadow(0 0 0.5vw #018601); /* Ajusta la sombra en unidades 'vw' */
+    transform: rotate(22.5deg); /* Alinea la hoja con la posición de un pétalo */
+    bottom: -3vw; /* Ajusta la posición vertical de la hoja en unidades 'vw' */
+    left: 4vw; /* Ajusta la posición horizontal de la hoja en unidades 'vw' */
+    z-index: 0; /* Debe estar delante del tallo pero detrás de los pétalos */
+}
+
+  /*---------------------*/
+  @keyframes fadeIn {
     0% {
       opacity: 0;
-      transform: translateX(-50%) translateY(-20px);
-    }
-    50% {
-      opacity: 0.5;
-      transform: translateX(-50%) translateY(-10px);
     }
     100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-}
-
-@media (max-width: 468px) {
-    body {
-        background: linear-gradient(100deg, blue, purple, pink);
-
+      opacity: 1;
     }
-}
+  }
+  .flower-container .flower,
+  .Petal1,
+  .Petal2,
+  .Petal3,
+  .stem,
+  .vase,
+  .leaf {
+    animation: fadeIn 0.5s ease forwards; /* Aplica la animación a todos los elementos */
+  }
+
